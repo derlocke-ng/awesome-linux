@@ -1,4 +1,5 @@
-# Various shell scripts designed to work with Debian Bullseye.
+# awesome-linux
+*Various shell scripts designed to work with Debian Bullseye.*
 
 ### change_ip.sh
 *Changes IP address via `/etc/network/interfaces`.*
