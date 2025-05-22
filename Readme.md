@@ -19,3 +19,7 @@ Edit variables to your liking and run with `sudo ./change_ssh_keys.sh`.
 
 ### How to use:
 Edit variables to your liking and run with `sudo ./create_luks_encypted_disk.sh`.
+
+
+## Notes
+Most scripts are old, but will be updated to work with the latest Debian stable (Bullseye -> Bookworm for now).
