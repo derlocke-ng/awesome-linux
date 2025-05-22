@@ -3,7 +3,7 @@
 
 ## How to use:
 
-Run `./sshkeygen.sh [hostname] [algo] [bits] [passphrase_mode]`.
+Run `./ksshgen.sh [hostname] [algo] [bits] [passphrase_mode]`.
 ```
   hostname         Hostname for key comment and file name (default: current hostname)
   algo             Key algorithm: rsa, ed25519, ecdsa (default: ed25519)

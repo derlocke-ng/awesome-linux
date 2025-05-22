@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage:
-# ./sshkeygen.sh [hostname] [algo] [bits] [passphrase_mode]
+# ./ksshgen.sh [hostname] [algo] [bits] [passphrase_mode]
 #  hostname         Hostname for key comment and file name (default: current hostname)
 #  algo             Key algorithm: rsa, ed25519, ecdsa (default: ed25519)
 #  bits             Key size (default: 4096 for rsa, 256 for ecdsa/ed25519)
