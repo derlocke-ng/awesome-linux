@@ -35,4 +35,4 @@ Host kiwi-master-portainer
 ```
 
 Use `sftp://Host` for connecting to remote SSH host via Nautilus or other supported file browsers,
-e.g. `sftp://m1-downdloads m1-downloads` in `~/.config/gtk-3.0/bookmarks` to create a bookmark in Nautilus.
+e.g. `sftp://m1-downdloads/Downloads m1-downloads` in `~/.config/gtk-3.0/bookmarks` to create a bookmark in Nautilus.
