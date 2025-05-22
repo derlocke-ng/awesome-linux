@@ -1,7 +1,7 @@
 # select-server and GNOME workflow for accessing ssh servers
 *bash script for selecting ssh servers/tunnels and creating a usable GNOME workflow*
 
-#### How to use:
+## How to use:
 Copy `select-server` to `~/.local/bin` and run in terminal with `select-server`.
 
 Example entry for `~/.ssh/config`:
