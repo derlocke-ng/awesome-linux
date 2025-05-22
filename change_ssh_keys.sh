@@ -26,6 +26,6 @@ chmod 0600 /home/$LOCAL_USER/.ssh/authorized_keys
 chown $LOCAL_USER:$LOCAL_USER /home/$LOCAL_USER/.ssh/authorized_keys
 echo $AUTHORIZED_KEYS_ROOT > /root/.ssh/authorized_keys
 chmod 0600 /root/.ssh/authorized_keys
-echo "no-port-forwarding,no-agent-forwarding,no-x11-forwarding $AUTHORIZED_KEYS_ROOT_PREBOOT" > /etc/dropbear-initramfs/authorized_keys
+echo "no-port-forwarding,no-agent-forwarding,no-x11-forwarding $AUTHORIZED_KEYS_ROOT_PREBOOT" > /etc/dropbear/initramfs/authorized_keys
 
 systemctl restart sshd

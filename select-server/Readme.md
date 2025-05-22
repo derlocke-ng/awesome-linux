@@ -6,7 +6,7 @@ Copy `select-server` to `~/.local/bin` and run in terminal with `select-server`.
 
 Example entries for `~/.ssh/config`:
 ```
-## example for sftp access (sftp in docker as host, will use user:pass, example for changing ssh keys)
+## example for sftp access (sftp in docker as host, will use user:pass, example for rotating ssh keys)
 # downloads@m1
 Host m1-downloads
     HostName m1.kiwi
