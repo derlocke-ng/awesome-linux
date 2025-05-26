@@ -1,6 +1,6 @@
 #!/bin/bash
 # syncman.sh: Manage game save sync systemd services
-# Usage: ./syncman.sh [start|stop|list] [sync_name|all] [--user|--system]
+# Usage: ./syncman.sh [start|stop|list|log] [sync_name|all] [--user|--system]
 # Requires: yq, systemctl, bash
 #
 # Systemd unit files are generated in ~/.config/systemd/user/ or /etc/systemd/system/
@@ -11,7 +11,7 @@ CONFIG_GLOBAL="$(dirname "$0")/config.yaml"
 SYNC_DIR="$(dirname "$0")"
 
 usage() {
-  echo "Usage: $0 [start|stop|list] [sync_name|all] [--user|--system]"
+  echo "Usage: $0 [start|stop|list|log] [sync_name|all] [--user|--system]"
   exit 1
 }
 
@@ -90,6 +90,17 @@ list_services() {
   fi
 }
 
+log_sync() {
+  local name="$1"
+  local mode="$2"
+  local service="syncjob-${name}.service"
+  if [[ "$mode" == "--user" ]]; then
+    journalctl --user -u "$service" -e
+  else
+    sudo journalctl -u "$service" -e
+  fi
+}
+
 # Main
 if [[ $# -lt 2 ]]; then
   usage
@@ -116,6 +127,9 @@ case "$CMD" in
     ;;
   list)
     list_services "$MODE"
+    ;;
+  log)
+    log_sync "$NAME" "$MODE"
     ;;
   *)
     usage

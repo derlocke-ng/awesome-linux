@@ -53,6 +53,7 @@ destinations:
 - List jobs: `./syncman.sh list all --user`
 - Start a job: `./syncman.sh start example_saves --user`
 - Stop a job: `./syncman.sh stop example_saves --user`
+- Show logs for a job: `./syncman.sh log example_saves --user`
 
 ## Systemd Integration
 - Services are created in `~/.config/systemd/user/` (for --user or without) or `/etc/systemd/system/` (for --system).
