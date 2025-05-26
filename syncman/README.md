@@ -29,21 +29,22 @@ Create a file named `example_saves.yaml` in the same directory as the scripts:
 ```yaml
 name: example_saves
 sources:
-  - /var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE
-  - /var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE
+  - "/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE"
+  - "/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE"
 destinations:
-  - /var/home/user/Nextcloud/game-saves/duke-nukem2
-  - /var/home/user/Nextcloud/game-saves/hl-echoes
+  - "/var/home/user/Nextcloud/game-saves/duke-nukem2"
+  - "/var/home/user/Nextcloud/game-saves/hl-echoes"
 ```
 
-- This will sync `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE` <-> `/var/home/user/Nextcloud/game-saves/duke-nukem2`
-- And `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE` <-> `/var/home/user/Nextcloud/game-saves/hl-echoes`
+- This will sync `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE` <-> `/var/home/user/Nextcloud/game-saves/duke nukem2`
+- And `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE` <-> `/var/home/user/Nextcloud/game-saves/hl echoes`
 - Changes in either folder of a pair are synced both ways.
 
 **Note:**  
 - The number of sources and destinations must match.
 - All paths must exist and be accessible.
 - You can create as many `<jobname>.yaml` files as you need for different sync jobs.
+- **If your paths contain spaces, always wrap them in quotes in your YAML files.**
 
 ## Usage
 - List jobs: `./syncman.sh list all --user`

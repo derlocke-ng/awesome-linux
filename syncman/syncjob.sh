@@ -12,8 +12,8 @@ if [[ -z "$YAML_FILE" || ! -f "$YAML_FILE" ]]; then
 fi
 
 NAME=$(yq -r '.name' "$YAML_FILE")
-SOURCES=($(yq -r '.sources[]' "$YAML_FILE"))
-DESTINATIONS=($(yq -r '.destinations[]' "$YAML_FILE"))
+mapfile -t SOURCES < <(yq -r '.sources[]' "$YAML_FILE")
+mapfile -t DESTINATIONS < <(yq -r '.destinations[]' "$YAML_FILE")
 
 if [[ ${#SOURCES[@]} -eq 0 ]]; then
   echo "[ERROR] No sources found in $YAML_FILE" >&2
