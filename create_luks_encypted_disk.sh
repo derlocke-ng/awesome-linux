@@ -1,6 +1,4 @@
 #!/bin/bash
-# GNU General Public License v3.0
-# This script is licensed under the GNU GPL v3.0. See LICENSE file for details.
 
 # script to create a keyfile and create an luks encrypted disk2 (formatted with ext4)
 

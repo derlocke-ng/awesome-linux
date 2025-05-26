@@ -11,6 +11,3 @@ Run `./ksshgen.sh [hostname] [algo] [bits] [passphrase_mode]`.
   passphrase_mode  Passphrase mode: prompt, random, none (default: prompt)
 ```
 Without any attributes you will be prompted.
-
-## License
-This project is licensed under the GNU General Public License v3.0. See [LICENSE](../LICENSE) for details.

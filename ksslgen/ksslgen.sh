@@ -1,6 +1,4 @@
 #! /bin/bash
-# GNU General Public License v3.0
-# This script is licensed under the GNU GPL v3.0. See LICENSE file for details.
 
 ### Usage
 ## create new CA

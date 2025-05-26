@@ -58,6 +58,3 @@ destinations:
 ## Troubleshooting
 - Ensure yq, rsync, and inotifywait are installed and in the PATH for systemd.
 - Check systemd logs for error messages: `journalctl --user -u syncjob-<jobname>.service -e`
-
-## License
-This project is licensed under the GNU General Public License v3.0. See [LICENSE](../LICENSE) for details.
