@@ -26,18 +26,18 @@ Update SSH keys for root, user, and dropbear-initramfs.
 ```bash
 sudo ./change_ssh_keys.sh
 ```
-Edit the variables at the top of the script to set your key paths and users.
+Edit the variables at the top of the script to set your user and public keys.
 
 ---
 
 ### create_luks_encypted_disk.sh
-Create a keyfile and LUKS-encrypted partition, format it with ext4, and configure it to mount via `fstab`.
+Creates a keyfile and LUKS-encrypted partition, formats it with ext4, and configures it to mount via `fstab`.
 
 **Usage:**
 ```bash
 sudo ./create_luks_encypted_disk.sh
 ```
-Edit the variables at the top of the script to match your device and mount point.
+Edit the variables at the top of the script to match your device, mount point and keyefile.
 
 ---
 
@@ -59,4 +59,4 @@ A bash script for creating self-signed SSL certificates and certificate authorit
 A Bash script for selecting SSH servers/tunnels from your `~/.ssh/config` and creating a usable workflow for GNOME. Includes usage examples and config tips.
 
 ### [syncman](./syncman/README.md)
-A CLI tool and systemd service manager for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Uses YAML config files and supports systemd integration.
+A CLI tool for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Uses YAML config files and supports systemd integration.
