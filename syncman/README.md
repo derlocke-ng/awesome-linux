@@ -16,6 +16,8 @@ syncman is a CLI tool for bidirectional, pair-wise syncing of folders (e.g., gam
 - inotifywait (from inotify-tools)
 - systemd
 
+*use `systemctl --user import-environment PATH` to refresh the PATH after installing `yq` through e.g. `brew`*
+
 ## Setup
 1. Place all scripts and YAML files in the same directory (e.g., `/var/home/user/scripts/syncman`).
 2. Install dependencies: `yq`, `rsync`, `inotifywait`.
