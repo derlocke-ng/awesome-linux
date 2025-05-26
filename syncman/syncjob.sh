@@ -1,4 +1,7 @@
 #!/bin/bash
+# GNU General Public License v3.0
+# This script is licensed under the GNU GPL v3.0. See LICENSE file for details.
+
 # syncjob.sh: Run a bidirectional sync for a given sync job YAML file
 # Usage: ./syncjob.sh <sync_yaml_file>
 # Requires: yq, inotifywait, rsync

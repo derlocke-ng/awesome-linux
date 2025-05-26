@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# GNU General Public License v3.0
+# This script is licensed under the GNU GPL v3.0. See LICENSE file for details.
+
 ## change dhcp ip automatically to static ip on the first ethernet interface (after lo)!!! -> "$ ip a" after "2:"
 ## or set it manually
 

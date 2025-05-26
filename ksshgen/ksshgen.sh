@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# GNU General Public License v3.0
+# This script is licensed under the GNU GPL v3.0. See LICENSE file for details.
+
 # Usage:
 # ./ksshgen.sh [hostname] [algo] [bits] [passphrase_mode]
 #  hostname         Hostname for key comment and file name (default: current hostname)

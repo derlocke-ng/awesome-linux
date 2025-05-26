@@ -9,3 +9,6 @@ Run `./ksslgen.sh new_cert example.com`.
 
 > Edit script for changing TLDs and other settings.
 > Pre-configured to work with the kiwi-network setup.
+
+## License
+This project is licensed under the GNU General Public License v3.0. See [LICENSE](../LICENSE) for details.

@@ -60,4 +60,4 @@ destinations:
 - Check systemd logs for error messages: `journalctl --user -u syncjob-<jobname>.service -e`
 
 ## License
-MIT
+This project is licensed under the GNU General Public License v3.0. See [LICENSE](../LICENSE) for details.
