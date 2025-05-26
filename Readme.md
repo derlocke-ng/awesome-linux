@@ -25,4 +25,4 @@ Edit variables to your liking and run with `sudo ./create_luks_encypted_disk.sh`
 Most scripts are old, but will be updated to work with the latest Debian stable (Bullseye -> Bookworm for now).
 
 ## License
-This project is licensed under the GNU General Public License v3.0. See [LICENSE](../LICENSE) for details.
+This project is licensed under the GNU General Public License v3.0. See [LICENSE](LICENSE) for details.
