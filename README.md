@@ -47,7 +47,7 @@ Edit the variables at the top of the script to match your device, mount point an
 
 ---
 
-## Related Tools
+## Related tools for all Linux distributions
 
 ### [ksshgen](./ksshgen/README.md)
 A bash script for creating SSH keys. Supports multiple algorithms, key sizes, and passphrase modes. Interactive or argument-based usage.
