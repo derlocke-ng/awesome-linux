@@ -1,30 +1,37 @@
 # awesome-linux
 
-Various shell scripts designed to work with Debian stable.
+A collection of Bash scripts for managing and automating tasks on Debian stable systems (Bullseye/Bookworm).
 
 ## Dependencies
 - Bash shell
 - Debian stable (Bullseye/Bookworm)
 
-## Scripts
+## Available Scripts
 
 ### change_ip.sh
-Changes (dhcp to static) IP address via `/etc/network/interfaces`.
-
-#### Usage
-Edit variables to your liking and run with `sudo ./change_ip.sh`.
+Change a DHCP IP address to a static IP for the first ethernet interface via `/etc/network/interfaces`.
+- **Usage:**
+  Edit variables as needed and run:
+  ```bash
+  sudo ./change_ip.sh
+  ```
 
 ### change_ssh_keys.sh
-Changes SSH keys for root, user and dropbear-initramfs.
-
-#### Usage
-Edit variables to your liking and run with `sudo ./change_ssh_keys.sh`.
+Update SSH keys for root, user, and dropbear-initramfs.
+- **Usage:**
+  Edit variables as needed and run:
+  ```bash
+  sudo ./change_ssh_keys.sh
+  ```
 
 ### create_luks_encypted_disk.sh
-Creates a keyfile and a LUKS partition, formats it with ext4 and mounts it via `fstab`.
-
-#### Usage
-Edit variables to your liking and run with `sudo ./create_luks_encypted_disk.sh`.
+Create a keyfile and LUKS-encrypted partition, format it with ext4, and mount via `fstab`.
+- **Usage:**
+  Edit variables as needed and run:
+  ```bash
+  sudo ./create_luks_encypted_disk.sh
+  ```
 
 ## Notes
-Most scripts are old, but will be updated to work with the latest Debian stable (Bullseye -> Bookworm for now).
+- Most scripts are tailored for Debian stable and may require editing variables for your setup.
+- Scripts are being updated for compatibility with the latest Debian releases.
