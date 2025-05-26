@@ -1,7 +1,8 @@
-# select-server and GNOME workflow for accessing ssh servers
-*bash script for selecting ssh servers/tunnels and creating a usable GNOME workflow*
+# select-server
 
-## How to use:
+A Bash script for selecting SSH servers/tunnels and integrating with a GNOME workflow.
+
+## Usage
 Copy `select-server` to `~/.local/bin` and run in terminal with `select-server`.
 
 Example entries for `~/.ssh/config`:
@@ -36,3 +37,7 @@ Host kiwi-master-portainer
 
 Use `sftp://Host` for connecting to remote SSH host via Nautilus or other supported file browsers,
 e.g. `sftp://m1-downdloads/Downloads m1-downloads` in `~/.config/gtk-3.0/bookmarks` to create a bookmark in Nautilus.
+
+## Requirements
+- Bash shell
+- OpenSSH tools
