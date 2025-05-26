@@ -17,14 +17,14 @@
 - systemd
 
 ## Setup
-1. Place all scripts and YAML files in the same directory (e.g., `/var/home/user/Documents/GitHub/syncman`).
+1. Place all scripts and YAML files in the same directory (e.g., `/var/home/user/scripts/syncman`).
 2. Install dependencies: `yq`, `rsync`, `inotifywait`.
 3. Ensure all scripts are executable: `chmod +x syncman.sh syncjob.sh`
 
 ## Example
 
-Suppose you want to sync game save folders between your local machine, a USB drive, and a cloud folder.  
-Create a file named `example_saves.yaml` in the same directory as the scripts:
+Suppose you want to sync your local game save folders with a Nextcloud directory, so that your saves are automatically backed up and available on other devices via Nextcloud.  
+To do this, create a file named `example_saves.yaml` in the same directory as the syncman scripts:
 
 ```yaml
 name: example_saves
