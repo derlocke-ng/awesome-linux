@@ -1,6 +1,6 @@
 # syncman
 
-*syncman is a CLI tool and systemd service manager for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Each sync job is defined in its own YAML file.*
+syncman is a CLI tool and systemd service manager for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Each sync job is defined in its own YAML file.
 
 ## Features
 - Manage sync jobs as systemd user or system services
