@@ -6,32 +6,41 @@ A collection of Bash scripts for managing and automating tasks on Debian stable 
 - Bash shell
 - Debian stable (Bullseye/Bookworm)
 
-## Available Scripts
+## Scripts
 
 ### change_ip.sh
-Change a DHCP IP address to a static IP for the first ethernet interface via `/etc/network/interfaces`.
-- **Usage:**
-  Edit variables as needed and run:
-  ```bash
-  sudo ./change_ip.sh
-  ```
+Change your system's DHCP IP to a static IP on the first ethernet interface using `/etc/network/interfaces`.
+
+**Usage:**
+```bash
+sudo ./change_ip.sh
+```
+Edit the variables at the top of the script to match your network settings before running.
+
+---
 
 ### change_ssh_keys.sh
 Update SSH keys for root, user, and dropbear-initramfs.
-- **Usage:**
-  Edit variables as needed and run:
-  ```bash
-  sudo ./change_ssh_keys.sh
-  ```
+
+**Usage:**
+```bash
+sudo ./change_ssh_keys.sh
+```
+Edit the variables at the top of the script to set your key paths and users.
+
+---
 
 ### create_luks_encypted_disk.sh
-Create a keyfile and LUKS-encrypted partition, format it with ext4, and mount via `fstab`.
-- **Usage:**
-  Edit variables as needed and run:
-  ```bash
-  sudo ./create_luks_encypted_disk.sh
-  ```
+Create a keyfile and LUKS-encrypted partition, format it with ext4, and configure it to mount via `fstab`.
+
+**Usage:**
+```bash
+sudo ./create_luks_encypted_disk.sh
+```
+Edit the variables at the top of the script to match your device and mount point.
+
+---
 
 ## Notes
-- Most scripts are tailored for Debian stable and may require editing variables for your setup.
-- Scripts are being updated for compatibility with the latest Debian releases.
+- Most scripts are tailored for Debian stable (Bookworm/Bullseye) and may require editing variables for your setup.
+- For Bookworm, the initramfs path is `/etc/dropbear/initramfs/`; for Bullseye, it's `/etc/dropbear-initramfs/` for example.
