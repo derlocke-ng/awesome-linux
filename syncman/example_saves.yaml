@@ -1,0 +1,7 @@
+name: example_saves
+sources:
+  - /var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE
+  - /var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE
+destinations:
+  - /home/youruser/CloudDrive/game-saves/duke-nukem2
+  - /home/youruser/CloudDrive/game-saves/hl-echoes
