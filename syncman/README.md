@@ -1,6 +1,6 @@
 # syncman
 
-*syncman is a CLI tool and systemd service manager for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Each sync job is defined in its own YAML file.*
+**syncman is a CLI tool and systemd service manager for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Each sync job is defined in its own YAML file.**
 
 ## Features
 - Manage sync jobs as systemd user or system services
@@ -36,8 +36,8 @@ destinations:
   - "/var/home/user/Nextcloud/game-saves/hl-echoes"
 ```
 
-- This will sync `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE` <-> `/var/home/user/Nextcloud/game-saves/duke nukem2`
-- And `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE` <-> `/var/home/user/Nextcloud/game-saves/hl echoes`
+- This will sync `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Duke Nukem 2/Dosbox/SAVE` <-> `/var/home/user/Nextcloud/game-saves/duke-nukem2`
+- And `/var/home/user/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Half-Life/echoes/SAVE` <-> `/var/home/user/Nextcloud/game-saves/hl-echoes`
 - Changes in either folder of a pair are synced both ways.
 
 **Note:**  
@@ -50,11 +50,9 @@ destinations:
 - List jobs: `./syncman.sh list all --user`
 - Start a job: `./syncman.sh start example_saves --user`
 - Stop a job: `./syncman.sh stop example_saves --user`
-- Start all jobs: `./syncman.sh start all --user`
-- Stop all jobs: `./syncman.sh stop all --user`
 
 ## Systemd Integration
-- Services are created in `~/.config/systemd/user/` (for --user) or `/etc/systemd/system/` (for --system).
+- Services are created in `~/.config/systemd/user/` (for --user or without) or `/etc/systemd/system/` (for --system).
 - Use `systemctl --user status syncjob-<jobname>.service` to check status.
 
 ## Troubleshooting
