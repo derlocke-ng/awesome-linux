@@ -1,0 +1,5 @@
+# config.yaml: Global settings for syncman
+# Only global settings, no sync jobs here
+
+global:
+  default_interval: 10    # seconds between checks

@@ -1,0 +1,8 @@
+# gog_saves.yaml: Sync job for GOG saves
+name: gog_saves
+sources:
+  - /var/home/user/Documents/GitHub/cofid/src1
+  - /var/home/user/Documents/GitHub/cofid/src2
+destinations:
+  - /var/home/user/Documents/GitHub/cofid/dst1
+  - /var/home/user/Documents/GitHub/cofid/dst2
