@@ -47,7 +47,6 @@ destinations:
 - The number of sources and destinations must match.
 - All paths must exist and be accessible.
 - You can create as many `<jobname>.yaml` files as you need for different sync jobs.
-- **Old files will be overwritten!**
 - **If your paths contain spaces, always wrap them in quotes in your YAML files.**
 
 ## Usage
@@ -55,3 +54,6 @@ destinations:
 - Start a job: `./syncman.sh start example_saves --user`
 - Stop a job: `./syncman.sh stop example_saves --user`
 - Show logs for a job: `./syncman.sh log example_saves --user`
+
+**Note:**
+- **Old files will be overwritten!**
