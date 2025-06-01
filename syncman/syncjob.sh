@@ -1,11 +1,13 @@
 #!/bin/bash
-
 # syncjob.sh: Run a bidirectional sync for a given sync job YAML file
 # Usage: ./syncjob.sh <sync_yaml_file>
 # Requires: yq, inotifywait, rsync
 
 CONFIG_GLOBAL="$(dirname \"$0\")/config.yaml"
 YAML_FILE="$1"
+
+# add PATH to user systemctl, fix for missing yq if user install only
+systemctl --user import-environment PATH
 
 if [[ -z "$YAML_FILE" || ! -f "$YAML_FILE" ]]; then
   echo "Usage: $0 <sync_yaml_file>"
