@@ -1,6 +1,6 @@
 # syncman
 
-syncman is a CLI tool for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Uses YAML config files and supports systemd integration.
+syncman is a CLI tool for bidirectional, pair-wise syncing of folders (e.g., game saves) between multiple sources and destinations. Uses YAML config files and systemd integration.
 
 ## Features
 - Manage sync jobs as systemd user or system services
@@ -17,7 +17,7 @@ syncman is a CLI tool for bidirectional, pair-wise syncing of folders (e.g., gam
 - systemd
 
 **Note:**  
-- Use `systemctl --user import-environment PATH` to refresh the PATH after installing `yq` through e.g. `brew`
+- Use `systemctl --user import-environment PATH` to add PATH to systemd environment after installing `yq` through e.g. `brew` on Fedora Silverblue
 
 ## Setup
 1. Place all scripts and YAML files in the same directory (e.g., `/var/home/user/scripts/syncman`).
@@ -47,6 +47,7 @@ destinations:
 - The number of sources and destinations must match.
 - All paths must exist and be accessible.
 - You can create as many `<jobname>.yaml` files as you need for different sync jobs.
+- **Old files will be overwritten!**
 - **If your paths contain spaces, always wrap them in quotes in your YAML files.**
 
 ## Usage
@@ -54,11 +55,3 @@ destinations:
 - Start a job: `./syncman.sh start example_saves --user`
 - Stop a job: `./syncman.sh stop example_saves --user`
 - Show logs for a job: `./syncman.sh log example_saves --user`
-
-## Systemd Integration
-- Services are created in `~/.config/systemd/user/` (for --user or without) or `/etc/systemd/system/` (for --system).
-- Use `systemctl --user status syncjob-<jobname>.service` to check status.
-
-## Troubleshooting
-- Ensure yq, rsync, and inotifywait are installed and in the PATH for systemd.
-- Check systemd logs for error messages: `journalctl --user -u syncjob-<jobname>.service -e`
