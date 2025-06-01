@@ -41,6 +41,7 @@ Description=SyncJob for $name
 
 [Service]
 Type=simple
+Environment="PATH=$PATH"
 ExecStart=$abs_script_path $abs_yaml_path
 Restart=on-failure
 

@@ -6,11 +6,6 @@
 CONFIG_GLOBAL="$(dirname \"$0\")/config.yaml"
 YAML_FILE="$1"
 
-# Check if yq is available, if not import PATH to systemctl for user-installed tools
-if ! command -v yq >/dev/null 2>&1; then
-  systemctl --user import-environment PATH
-fi
-
 if [[ -z "$YAML_FILE" || ! -f "$YAML_FILE" ]]; then
   echo "Usage: $0 <sync_yaml_file>"
   exit 1
