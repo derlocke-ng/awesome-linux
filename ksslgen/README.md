@@ -13,7 +13,7 @@ A bash script for creating self-signed SSL certificates for self-hosting.
   ./ksslgen.sh new_cert example.kiwi
   ```
 
-Edit the script to change TLDs and other settings as needed. Pre-configured for the kiwi-network setup.
+Edit the script to settings as needed. Pre-configured for the kiwi-network setup.
 
 ## Requirements
 - Bash shell

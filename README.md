@@ -30,12 +30,12 @@ Edit the variables at the top of the script to set your user and public keys.
 
 ---
 
-### create_luks_encypted_disk.sh
+### create_luks_encrypted_disk.sh
 Creates a keyfile and LUKS-encrypted partition, formats it with ext4, and configures it to mount via `fstab`.
 
 **Usage:**
 ```bash
-sudo ./create_luks_encypted_disk.sh
+sudo ./create_luks_encrypted_disk.sh
 ```
 Edit the variables at the top of the script to match your device, mount point and keyefile.
 
