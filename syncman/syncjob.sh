@@ -3,7 +3,7 @@
 # Usage: ./syncjob.sh <sync_yaml_file>
 # Requires: yq, inotifywait, rsync
 
-CONFIG_GLOBAL="$(dirname \"$0\")/config.yaml"
+CONFIG_GLOBAL="$(dirname "$0")/config.yaml"
 YAML_FILE="$1"
 
 if [[ -z "$YAML_FILE" || ! -f "$YAML_FILE" ]]; then
@@ -29,7 +29,7 @@ if [[ ${#SOURCES[@]} -ne ${#DESTINATIONS[@]} ]]; then
 fi
 
 # Get global interval from config.yaml, fallback to 10 if not set
-GLOBAL_INTERVAL=$(yq -r '.global.default_interval // 10' "$CONFIG_GLOBAL" 2>/dev/null)
+GLOBAL_INTERVAL=$(yq -r '.global.default_interval' "$CONFIG_GLOBAL" 2>/dev/null)
 
 # Function to sync from src to dst, overwriting older files with newer ones
 sync_one_way() {
@@ -47,7 +47,7 @@ sync_bidirectional() {
 }
 
 # Watch for changes and sync, using interval from config.yaml
-timeout=${GLOBAL_INTERVAL:-10}
+timeout=${GLOBAL_INTERVAL:-30}
 while true; do
   inotifywait -r -e modify,create,move,close_write,attrib,delete "${SOURCES[@]}" "${DESTINATIONS[@]}" >/dev/null 2>&1
   sync_bidirectional
