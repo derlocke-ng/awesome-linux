@@ -36,11 +36,11 @@ fi
 # Get global interval from config.yaml, fallback to 10 if not set
 GLOBAL_INTERVAL=$(yq -r '.global.default_interval // 10' "$CONFIG_GLOBAL" 2>/dev/null)
 
-# Function to sync from src to dst without deleting or overwriting
+# Function to sync from src to dst, overwriting older files with newer ones
 sync_one_way() {
   local src="$1"
   local dst="$2"
-  rsync -av --ignore-existing --no-whole-file --inplace "$src/" "$dst/"
+  rsync -av --update --no-whole-file --inplace "$src/" "$dst/"
 }
 
 # Function to sync each source/destination pair bidirectionally
