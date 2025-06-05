@@ -4,10 +4,12 @@ syncman is a CLI tool for bidirectional, pair-wise syncing of folders (e.g., gam
 
 ## Features
 - Manage sync jobs as systemd user or system services
-- Bidirectional, pair-wise sync (source[i] <-> destination[i])
+- Bidirectional, pair-wise sync (source[i] <-> destination[i])  
+- Newer files automatically overwrite older ones during sync
 - Watches for file changes and syncs automatically
 - Modular YAML config: one file per sync job
 - Global settings in config.yaml
+- Automatic PATH handling for user-installed tools
 
 ## Requirements
 - bash
@@ -16,8 +18,10 @@ syncman is a CLI tool for bidirectional, pair-wise syncing of folders (e.g., gam
 - inotifywait (from inotify-tools)
 - systemd
 
-**Note:**  
-- Use `systemctl --user import-environment PATH` to add PATH to systemd environment after installing `yq` through e.g. `brew` on Fedora Silverblue
+## Sync Behavior
+- **Bidirectional sync**: Changes in either source or destination are synced both ways
+- **Time-based overwrites**: Newer files automatically overwrite older ones using rsync's `--update` flag
+- **Non-destructive**: Files are only overwritten when a newer version exists
 
 ## Setup
 1. Place all scripts and YAML files in the same directory (e.g., `/var/home/user/scripts/syncman`).
@@ -50,10 +54,44 @@ destinations:
 - **If your paths contain spaces, always wrap them in quotes in your YAML files.**
 
 ## Usage
-- List jobs: `./syncman.sh list all --user`
-- Start a job: `./syncman.sh start example_saves --user`
-- Stop a job: `./syncman.sh stop example_saves --user`
-- Show logs for a job: `./syncman.sh log example_saves --user`
 
-**Note:**
-- **Old files will be overwritten!**
+### Basic Commands
+- **List available sync jobs**: `./syncman.sh list all --user`
+- **Start a sync job**: `./syncman.sh start example_saves --user`
+- **Stop a sync job**: `./syncman.sh stop example_saves --user`
+- **Show logs for a job**: `./syncman.sh log example_saves --user`
+
+### Service Modes
+- **User services** (default): `--user` - Services run under user session
+- **System services**: `--system` - Services run system-wide (requires sudo)
+
+### Examples
+```bash
+# Start a job as user service (default)
+./syncman.sh start example_saves --user
+./syncman.sh start example_saves          # same as above
+
+# Start a job as system service
+./syncman.sh start example_saves --system
+
+# Start all jobs
+./syncman.sh start all --user
+
+# Stop and list services
+./syncman.sh stop example_saves --user
+./syncman.sh list all --user
+```
+
+## Systemd Integration
+- **User services**: Created in `~/.config/systemd/user/` 
+- **System services**: Created in `/etc/systemd/system/` (requires sudo)
+- PATH environment is automatically handled for user-installed tools
+
+## Troubleshooting
+- Ensure yq, rsync, and inotifywait are installed and accessible
+- Check the log for errors
+- Verify that all source and destination paths exist and are accessible
+
+**Important Notes:**
+- **Newer files overwrite older ones** - This ensures the most recent version is synced
+- Default sync interval is 30 seconds (configurable in `config.yaml`)

@@ -31,11 +31,28 @@ gen_unit_file() {
   local mode="$3"
   local unit_file
   unit_file=$(get_unit_file "$name" "$mode")
-  mkdir -p "$(dirname "$unit_file")"
-  local abs_script_path abs_yaml_path
+  
+  # Create directory with appropriate permissions
+  if [[ "$mode" == "--user" ]]; then
+    mkdir -p "$(dirname "$unit_file")"
+  else
+    sudo mkdir -p "$(dirname "$unit_file")"
+  fi
+  
+  local abs_script_path abs_yaml_path target
   abs_script_path="$(cd "$SYNC_DIR" && pwd)/syncjob.sh"
   abs_yaml_path="$(cd "$SYNC_DIR" && pwd)/${name}.yaml"
-  cat > "$unit_file" <<EOF
+  
+  # Set appropriate target based on mode
+  if [[ "$mode" == "--user" ]]; then
+    target="default.target"
+  else
+    target="multi-user.target"
+  fi
+  
+  # Create unit file content
+  local unit_content
+  unit_content=$(cat <<EOF
 [Unit]
 Description=SyncJob for $name
 
@@ -46,8 +63,16 @@ ExecStart=$abs_script_path $abs_yaml_path
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=$target
 EOF
+)
+  
+  # Write unit file with appropriate permissions
+  if [[ "$mode" == "--user" ]]; then
+    echo "$unit_content" > "$unit_file"
+  else
+    echo "$unit_content" | sudo tee "$unit_file" > /dev/null
+  fi
 }
 
 list_syncs() {
