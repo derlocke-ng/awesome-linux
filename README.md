@@ -1,10 +1,10 @@
 # awesome-linux
 
-A collection of Bash scripts for managing and automating tasks on Debian stable systems (Bullseye/Bookworm).
+A collection of Bash scripts for managing and automating tasks on Debian stable systems (Bookworm/Trixie).
 
 ## Dependencies
 - Bash shell
-- Debian stable (Bullseye/Bookworm)
+- Debian stable (Bookworm/Trixie)
 
 ## Scripts
 
@@ -37,13 +37,35 @@ Creates a keyfile and LUKS-encrypted partition, formats it with ext4, and config
 ```bash
 sudo ./create_luks_encrypted_disk.sh
 ```
-Edit the variables at the top of the script to match your device, mount point and keyefile.
+Edit the variables at the top of the script to match your device, mount point and keyfile.
+
+---
+
+### tethering.sh
+Sets the TTL of incoming packets to 64 on a specified network interface using `iptables`, which can help bypass tethering detection by some carriers.
+
+**Usage:**
+```bash
+sudo ./tethering.sh
+```
+Edit the network interface name in the script (default: `enp54s0f4u1`) to match your tethering device.
+
+---
+
+### gzdoom
+A wrapper script to launch [GZDoom](https://zdoom.org/) via Flatpak. Place it in `~/.local/bin/` to use `gzdoom` as a command, e.g. for launching mods or WADs from the terminal.
+
+**Usage:**
+```bash
+gzdoom [gzdoom_args]
+```
+Requires the `org.zdoom.GZDoom` Flatpak to be installed.
 
 ---
 
 ## Notes
-- Most scripts are tailored for Debian stable (Bookworm/Bullseye) and may require editing variables for your setup.
-- For Bookworm, the initramfs path is `/etc/dropbear/initramfs/`; for Bullseye, it's `/etc/dropbear-initramfs/` for example.
+- Most scripts are tailored for Debian stable (Bookworm/Trixie) and may require editing variables for your setup.
+- For Bookworm/Trixie, the initramfs path is `/etc/dropbear/initramfs/`; for Bullseye, it was `/etc/dropbear-initramfs/`.
 
 ---
 

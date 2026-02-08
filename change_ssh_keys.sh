@@ -16,7 +16,7 @@ AUTHORIZED_KEYS_ROOT_PREBOOT="SSH-KEY"
 # check for root
 
 if [[ $EUID -ne 0 ]]; then
-    echo "$0 is not running as root. Pleaser run as root or enter sudo password."
+    echo "$0 is not running as root. Please run as root or enter sudo password."
 	sudo "$0" "$(pwd)$@"
     exit $?
 fi

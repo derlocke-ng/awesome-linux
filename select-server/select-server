@@ -1,4 +1,5 @@
 #!/bin/bash
 
-select server in $(sed -n "s/^Host \(.*\)/\1/p" ~/.ssh/config) ; do [[ $server ]] && ssh $server ; break ; done
+set -f # Disable globbing so Host * doesn't expand to filenames
+select server in $(sed -n "s/^Host \(.*\)/\1/p" ~/.ssh/config | grep -v '[*?]') ; do [[ $server ]] && ssh $server ; break ; done
 
