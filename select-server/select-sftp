@@ -1,0 +1,34 @@
+#!/bin/bash
+# select-sftp: Select a server from ~/.ssh/config and open Nautilus via SFTP
+
+# Get list of hosts from ssh config
+HOSTS=( $(sed -n "s/^Host \(.*\)/\1/p" ~/.ssh/config) )
+
+if [[ ${#HOSTS[@]} -eq 0 ]]; then
+    echo "No hosts found in ~/.ssh/config"
+    exit 1
+fi
+
+# Prompt user to select a host
+PS3="Select a server to open via SFTP: "
+select SERVER in "${HOSTS[@]}"; do
+    if [[ -n "$SERVER" ]]; then
+        # Get username and hostname from ssh config
+        USER=$(awk "/^Host $SERVER$/,/^Host /{if (/^\s*User /) print \$2}" ~/.ssh/config | head -n1)
+        HOST=$(awk "/^Host $SERVER$/,/^Host /{if (/^\s*HostName /) print \$2}" ~/.ssh/config | head -n1)
+        # Fallbacks
+        [[ -z "$HOST" ]] && HOST="$SERVER"
+        [[ -z "$USER" ]] && USER="$USER"
+        # Build SFTP URI
+        SFTP_URI="sftp://$USER@$HOST"
+        # Open Nautilus (try to open a new tab if possible)
+        if pgrep nautilus >/dev/null; then
+            # Try to open a new tab (Nautilus 43+ supports --new-tab)
+            nautilus --new-tab "$SFTP_URI" 2>/dev/null || nautilus "$SFTP_URI"
+        else
+            nautilus "$SFTP_URI" &
+        fi
+        break
+    fi
+    echo "Invalid selection."
+done
