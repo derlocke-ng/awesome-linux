@@ -1,6 +1,6 @@
 # awesome-linux
 
-A collection of Bash scripts for managing and automating tasks on Debian stable systems (Bookworm/Trixie).
+A curated collection of Bash and Python scripts designed to simplify system management and task automation across diverse Linux environments, including Debian Bookworm and Trixie, Fedora Silverblue, and beyond – making a geek's life exponentially easier! 🚀🐧
 
 ## Dependencies
 - Bash shell
