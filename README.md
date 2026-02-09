@@ -63,6 +63,17 @@ Requires the `org.zdoom.GZDoom` Flatpak to be installed.
 
 ---
 
+### pweb
+A Python script for running an HTTPS file server on a free port with auto-generated self-signed certificates.
+
+**Usage:**
+```bash
+./pweb
+```
+Requires `python3` and `openssl` to be installed.
+
+---
+
 ## Notes
 - Most scripts are tailored for Debian stable (Bookworm/Trixie) and may require editing variables for your setup.
 - For Bookworm/Trixie, the initramfs path is `/etc/dropbear/initramfs/`; for Bullseye, it was `/etc/dropbear-initramfs/`.
